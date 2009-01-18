@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "param string is title" do
+    assert_equal pages(:one).title, pages(:one).to_param
   end
 end

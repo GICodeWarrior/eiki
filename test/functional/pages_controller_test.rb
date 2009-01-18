@@ -14,30 +14,30 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should create page" do
     assert_difference('Page.count') do
-      post :create, :page => { }
+      post :create, :page => { :title=>'test create' }
     end
 
     assert_redirected_to page_path(assigns(:page))
   end
 
   test "should show page" do
-    get :show, :id => pages(:one).id
+    get :show, :id => pages(:one).title
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => pages(:one).id
+    get :edit, :id => pages(:one).title
     assert_response :success
   end
 
   test "should update page" do
-    put :update, :id => pages(:one).id, :page => { }
+    put :update, :id => pages(:one).title, :page => { }
     assert_redirected_to page_path(assigns(:page))
   end
 
   test "should destroy page" do
     assert_difference('Page.count', -1) do
-      delete :destroy, :id => pages(:one).id
+      delete :destroy, :id => pages(:one).title
     end
 
     assert_redirected_to pages_path

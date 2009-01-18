@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
+  title: MyString1
   body: MyText
 
 two:
-  title: MyString
+  title: MyString2
   body: MyText
