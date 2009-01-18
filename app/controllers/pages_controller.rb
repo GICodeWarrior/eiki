@@ -24,7 +24,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.xml
   def new
-    @page = Page.new
+    @page = Page.new(:title=>params[:title])
 
     respond_to do |format|
       format.html # new.html.erb
