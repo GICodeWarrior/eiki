@@ -11,12 +11,24 @@
 
 ActiveRecord::Schema.define(:version => 20090118225144) do
 
+  create_table "page_versions", :force => true do |t|
+    t.integer  "page_id"
+    t.integer  "version"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "updated_at"
+    t.string   "edit_summary"
+  end
+
+  add_index "page_versions", ["page_id"], :name => "index_page_versions_on_page_id"
+
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "edit_summary"
+    t.integer  "version",      :default => 1
   end
 
 end

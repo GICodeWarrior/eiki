@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   # GET /pages/1.xml
   def show
     @page = Page.find_by_title(params[:id])
+    @page.revert_to(params[:version]) if params[:version]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -80,6 +81,15 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(pages_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def history
+    @page = Page.find_by_title(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @page.versions }
     end
   end
 end
